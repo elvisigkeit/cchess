@@ -6,8 +6,15 @@ import 'package:cchess/modules/home/bloc/new_game_bloc.dart';
 class HomeRepository {
   Future<void> requestNewGame(NewGameBloc newGameBloc) async {
     http.Response response;
+
     //Request test
-    response = await http.get(Uri.http('jsonplaceholder.typicode.com', 'albums/1'));
+    try {
+      response =
+      await http.get(Uri.http('jsonplaceholder.typicode.com', 'albums/1'));
+    } catch(e) {
+      newGameBloc.add(NewGameFail(e.toString()));
+      return;
+    }
 
     if (response.statusCode == 200) {
       newGameBloc.add(NewGameSuccess());

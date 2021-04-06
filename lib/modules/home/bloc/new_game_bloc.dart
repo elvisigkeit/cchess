@@ -18,11 +18,11 @@ class NewGameBloc extends Bloc<NewGameEvent, NewGameState> {
   Stream<NewGameState> mapEventToState (NewGameEvent event) async* {
     if (event is NewGameRequest) {
       _homeRepository.requestNewGame(this);
+      yield NewGameState.loading();
     } else if (event is NewGameSuccess) {
-      debugPrint("Success");
+      yield NewGameState.success();
     } else if (event is NewGameFail) {
-      debugPrint("Fail");
-      debugPrint(event.status);
+      yield NewGameState.fail(event.message);
     }
   }
 

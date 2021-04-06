@@ -8,12 +8,12 @@ abstract class NewGameEvent extends Equatable {
 }
 
 class NewGameFail extends NewGameEvent {
-  const NewGameFail(this.status);
+  const NewGameFail(this.message);
 
-  final String status;
+  final String message;
 
   @override
-  List<Object> get props => [status];
+  List<Object> get props => [message];
 }
 
 class NewGameSuccess extends NewGameEvent {}
