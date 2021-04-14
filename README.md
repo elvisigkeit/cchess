@@ -1,6 +1,6 @@
 # CCHESS
 
-Front end of chess project
+Front end of [cchess project](https://github.com/elvismdnin/match_gateway)
 
 ## Flutter project
 
